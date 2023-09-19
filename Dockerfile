@@ -4,7 +4,7 @@ WORKDIR /home/gradle/src
 RUN gradle bootJar --no-daemon
 
 
-FROM openjdk:19-jdk-alpine
+FROM openjdk:21-ea-slim-bookworm
 EXPOSE 8080
 RUN mkdir /app
 COPY --from=builder /home/gradle/src/build/libs/*.jar /app/spring-boot-application.jar
